@@ -21,6 +21,9 @@ public class KthLargestElement
     //param k : description of k
     //param numbers : array of numbers
     //return: description of return
+
+    //// A recursive solution
+    /*
     public static int kthLargestElement(int k, ArrayList<Integer> numbers) {
         return select(numbers.size() - k, numbers, 0, numbers.size()-1);
     }
@@ -31,7 +34,18 @@ public class KthLargestElement
         else if (k < i) return select(k, numbers, lo, i -1);
         else return numbers.get(i);
     }
+    */
 
+    public static int kthLargestElement(int k, ArrayList<Integer> numbers) {
+        int lo = 0; int hi = numbers.size() - 1;
+        int p = numbers.size() - k;   // kth largest == pth smallest
+        while (true) {
+            int i = partition(numbers, lo, hi);
+            if (p > i) lo = i + 1;
+            else if (p < i) hi = i - 1;
+            else return numbers.get(p);
+        }
+    }
     private static int partition(ArrayList<Integer> numbers, int lo, int hi) {
         int v = numbers.get(lo);
         int i = lo+1, j = i;
