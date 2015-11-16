@@ -26,6 +26,7 @@
  * What if there is a lot of solutions?
  * Return any of them.
  *
+ * Solution : sink based.
  */
 
 public class Heapify

@@ -16,7 +16,11 @@ import java.util.PriorityQueue;
  * Total run time in O(nlogn).
  *
  * Clarification
- * What's the definition of Median? - Median is the number that in the middle of a sorted array. If there are n numbers in a sorted array A, the median is A[(n - 1) / 2]. For example, if A=[1,2,3], median is 2. If A=[1,19], median is 1.
+ * What's the definition of Median? - Median is the number that in the middle of a sorted array.
+ * If there are n numbers in a sorted array A, the median is A[(n - 1) / 2]. For example, if A=[1,2,3],
+ * median is 2. If A=[1,19], median is 1.
+ *
+ * Solution : Max Min Priority Queue Implementation
  *
  */
 public class DataStreamMedian
@@ -59,6 +63,4 @@ public class DataStreamMedian
         for (int i = 0; i < result.length; i++)
             System.out.print(result[i] + " ");
     }
-
-
 }

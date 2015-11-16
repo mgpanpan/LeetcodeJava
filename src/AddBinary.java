@@ -7,6 +7,8 @@
  * a = 11
  * b = 1
  * Return 100
+ *
+ * Solution : 利用Java String的 + 运算符
  */
 
 public class AddBinary
