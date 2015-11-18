@@ -1,0 +1,8 @@
+* Lintcode 解题思路记录
+** Convert Sorted List to Binary Search Tree
+Given a singly linked list where elements are sorted in ascending order, 
+convert it to a height balanced BST.
+
+思路：递归实现：
+base case: 找到中间的Node，将其val作为BST根节点的val，
+
