@@ -6,8 +6,9 @@ convert it to a height balanced BST.
 #+BEGIN_SRC Java
 public static TreeNode sortedListToBST(ListNode head)
 #+END_SRC
-思路：递归实现：
 
+*思路*：递归实现：
+ 
 base case: List为空时，返回null，List仅有一个元素时，返回一个仅含该元
 素的叶子节点；
 
@@ -15,8 +16,15 @@ recursion: 找到中间的Node，将其val作为BST根节点的val，将其左�
 其左子链表上递归调用此函数的结果，右子树设置为在其右子链表上递归调用此函数
 的结果。最后返回这个根节点的引用。
 
-[[file:SortedListToBST.java::55]] findMiddle function
+*实现细节*
 
++ 中间的Node指的是链表的第 $N/2 + 1$ 个Node，即若有3个Node，指的是第二个，若
+有4个Node，指的是第三个；
++ 为将原链表从中间分为左右两部分，右部分即为中间Node的next指向的链表，而对
+左部分，需要将中间Node的前一Node的next设置为null，以从中间断开，因此程序中
+真正需要获取的是中间前一Node的reference，所以程序中以及下图中的middle也许
+叫middlePre更合适。
+ 
 #+CAPTION: middle的指向
 #+NAME:   fig:FindMiddle
 [[../image/SortedListToBST.png]]
