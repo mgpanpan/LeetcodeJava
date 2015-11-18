@@ -15,7 +15,9 @@ recursion: 找到中间的Node，将其val作为BST根节点的val，将其左�
 其左子链表上递归调用此函数的结果，右子树设置为在其右子链表上递归调用此函数
 的结果。最后返回这个根节点的引用。
 
+[[file:SortedListToBST.java::55]] findMiddle function
+
 #+CAPTION: middle的指向
-     #+NAME:   fig:FindMiddle
+#+NAME:   fig:FindMiddle
 [[../image/SortedListToBST.png]]
 
