@@ -7,7 +7,7 @@ convert it to a height balanced BST.
 public static TreeNode sortedListToBST(ListNode head)
 #+END_SRC
 
-*思路*：递归实现：
+*思路* ：递归实现：
  
 base case: List为空时，返回null，List仅有一个元素时，返回一个仅含该元
 素的叶子节点；
@@ -18,14 +18,25 @@ recursion: 找到中间的Node，将其val作为BST根节点的val，将其左�
 
 *实现细节*
 
-+ 中间的Node指的是链表的第 N/2 + 1 个Node，即若有3个Node，指的是第二个，若
+中间的Node指的是链表的第 $$ N/2 + 1 $$ 个Node，即若有3个Node，指的是第二个，若
 有4个Node，指的是第三个；
-+ 为将原链表从中间分为左右两部分，右部分即为中间Node的next指向的链表，而对
+
+为将原链表从中间分为左右两部分，右部分即为中间Node的next指向的链表，而对
 左部分，需要将中间Node的前一Node的next设置为null，以从中间断开，因此程序中
 真正需要获取的是中间前一Node的reference，所以程序中以及下图中的middle也许
 叫middlePre更合适。
- 
+
 #+CAPTION: middle的指向
 #+NAME:   fig:FindMiddle
 [[../image/SortedListToBST.png]]
+
+很多链表题目的中间过程需要定位到链表的中间节点，注意不同题目具体的需求不同，
+可能需要定位到中间的元素，也可能需要定位到中间元素的前一元素，而且对于中间
+元素在奇偶长度下的定义也可能不同（尤其是偶数时），所以很多solution中虽都有
+findMiddle这一helper function，但是具体细节可能有差异。
+
+findMiddle这个函数的实现一般是通过fast和slow指针完成的，但是也可先统计一遍
+链表的长度，再定位到长度的一半，两者的时间复杂度是相同的。
+
+
 
