@@ -8,7 +8,14 @@ public static TreeNode sortedListToBST(ListNode head)
 #+END_SRC
 思路：递归实现：
 
-base case: 
+base case: List为空时，返回null，List仅有一个元素时，返回一个仅含该元
+素的叶子节点；
 
-recursion: 找到中间的Node，将其val作为BST根节点的val，
+recursion: 找到中间的Node，将其val作为BST根节点的val，将其左子树设置为在
+其左子链表上递归调用此函数的结果，右子树设置为在其右子链表上递归调用此函数
+的结果。最后返回这个根节点的引用。
+
+#+CAPTION: middle的指向
+     #+NAME:   fig:FindMiddle
+[[../image/SortedListToBST.png]]
 
