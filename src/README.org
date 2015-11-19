@@ -9,7 +9,7 @@ public static TreeNode sortedListToBST(ListNode head)
 
 *思路* ：递归实现：
  
-base case: List为空时，返回null，List仅有一个元素时，返回一个仅含该元
+base case: List为空时，返回 =null= ，List仅有一个元素时，返回一个仅含该元
 素的叶子节点；
 
 recursion: 找到中间的Node，将其val作为BST根节点的val，将其左子树设置为在
@@ -38,5 +38,36 @@ findMiddle这一helper function，但是具体细节可能有差异。
 findMiddle这个函数的实现一般是通过fast和slow指针完成的，但是也可先统计一遍
 链表的长度，再定位到长度的一半，两者的时间复杂度是相同的。
 
+*参考解法*
+上面的解法时间复杂度为 =O(nlgn)= ，参考答案给出了一种复杂度为 =O(n)= 的解法：
+#+BEGIN_SRC Java
+// method 2 O(n)
+    private static ListNode current;
 
+    private static int lengthOfList(ListNode head) {
+        int cnt = 0;
+        for (; head != null; head = head.next, cnt++) ;
+        return cnt;
+    }
+
+    public static TreeNode sortedListToBST(ListNode head) {
+        current = head;
+        int length = lengthOfList(head);
+        return sortedListToBSTHelper(head, length);
+    }
+
+    private static TreeNode sortedListToBSTHelper(ListNode head, int length) {
+        if (length <= 0) return null;
+        TreeNode left = sortedListToBSTHelper(head, length / 2);
+        TreeNode root = new TreeNode(current.val);
+        current = current.next;
+        TreeNode right = sortedListToBSTHelper(head, length - length / 2 - 1);
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+#+END_SRC
+
+自己的解法是从根到叶的一种从上而下的解法，而这种解法是从下往上的解法，扫描
+一遍原链表即可，要优于自己的解法。
 

@@ -29,38 +29,66 @@ public class SortedListToBST
         }
     }
 
-    /**
-     * @param head: The first node of linked list.
-     * @return: a tree node
-     */
+    // method 1 : O(nlgn)
+    // /**
+    //  * @param head: The first node of linked list.
+    //  * @return: a tree node
+    //  */
+    // public static TreeNode sortedListToBST(ListNode head) {
+    //     if (head == null) return null;
+    //     if (head.next == null) return new TreeNode(head.val);
+    //     ListNode middle = findMiddle(head);
+    //     TreeNode root = new TreeNode(middle.next.val);
+    //     ListNode right = middle.next.next;
+    //     middle.next = null;
+    //     root.left = sortedListToBST(head);
+    //     root.right = sortedListToBST(right);
+    //     return root;
+    // }
+//
+    // /**
+    //  *
+    //  * @param head
+    //  * @return middle points to index N / 2 - 1
+    //  * index start from 0
+    //  * assume the length of the input list is at least 2.
+    //  */
+    // private static ListNode findMiddle(ListNode head) {
+    //     if (head == null) return null;
+    //     ListNode dummy = new ListNode(-1);
+    //     dummy.next = head;
+    //     ListNode fast = head, slow = dummy;
+    //     while (fast != null && fast.next != null) {
+    //         slow = slow.next;
+    //         fast = fast.next.next;
+    //     }
+    //     return slow;
+    // }
+
+    // method 2 O(n)
+    private static ListNode current;
+
+    private static int lengthOfList(ListNode head) {
+        int cnt = 0;
+        for (; head != null; head = head.next, cnt++) ;
+        return cnt;
+    }
+
     public static TreeNode sortedListToBST(ListNode head) {
-        if (head == null) return null;
-        if (head.next == null) return new TreeNode(head.val);
-        ListNode middle = findMiddle(head);
-        TreeNode root = new TreeNode(middle.next.val);
-        ListNode right = middle.next.next;
-        middle.next = null;
-        root.left = sortedListToBST(head);
-        root.right = sortedListToBST(right);
+        current = head;
+        int length = lengthOfList(head);
+        return sortedListToBSTHelper(head, length);
+    }
+
+    private static TreeNode sortedListToBSTHelper(ListNode head, int length) {
+        if (length <= 0) return null;
+        TreeNode left = sortedListToBSTHelper(head, length / 2);
+        TreeNode root = new TreeNode(current.val);
+        current = current.next;
+        TreeNode right = sortedListToBSTHelper(head, length - length / 2 - 1);
+        root.left = left;
+        root.right = right;
         return root;
     }
 
-    /**
-     *
-     * @param head
-     * @return middle points to index N / 2 - 1
-     * index start from 0
-     * assume the length of the input list is at least 2.
-     */
-    private static ListNode findMiddle(ListNode head) {
-        if (head == null) return null;
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode fast = head, slow = dummy;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
-    }
 }
