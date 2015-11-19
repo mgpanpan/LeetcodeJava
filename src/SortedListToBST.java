@@ -77,15 +77,15 @@ public class SortedListToBST
     public static TreeNode sortedListToBST(ListNode head) {
         current = head;
         int length = lengthOfList(head);
-        return sortedListToBSTHelper(head, length);
+        return sortedListToBSTHelper(length);
     }
 
-    private static TreeNode sortedListToBSTHelper(ListNode head, int length) {
+    private static TreeNode sortedListToBSTHelper(int length) {
         if (length <= 0) return null;
-        TreeNode left = sortedListToBSTHelper(head, length / 2);
+        TreeNode left = sortedListToBSTHelper(length / 2);
         TreeNode root = new TreeNode(current.val);
         current = current.next;
-        TreeNode right = sortedListToBSTHelper(head, length - length / 2 - 1);
+        TreeNode right = sortedListToBSTHelper(length - length / 2 - 1);
         root.left = left;
         root.right = right;
         return root;
