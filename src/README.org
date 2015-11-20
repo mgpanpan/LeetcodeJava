@@ -263,7 +263,6 @@ After removing the second node from the end, the linked list becomes
 删除某个节点，总是要获得其前驱的reference，因此这里也需要添加一个 =dummy= 
 节点。
 
-
 ** Intersection Linked Lists
 
 Write a program to find the node at which the intersection of two singly 
@@ -283,11 +282,9 @@ The following two linked lists:
  
  - If the two linked lists have no intersection at all, return null.
 
- - The linked lists must retain their original structure after the function 
- returns.
+ - The linked lists must retain their original structure after the function returns.
 
- - You may assume there are no cycles anywhere in the entire linked 
- structure.
+ - You may assume there are no cycles anywhere in the entire linked structure.
 
  *Challenge*
  
@@ -301,5 +298,17 @@ The following two linked lists:
 扫描，若发现重合的节点，则返回该节点。否则扫描到链表尾都未找到，则返回
  =null= 。
 
- 
+** Merge Sort of Linked List
+
+*思路*
+
+链表的merge sort思路和数组的merge sort类似，首先需要解决两个linked list的
+merge问题，过程也和数组版本类似，两个指针分别指向两个链表，同时开始扫描，
+扫描的过程中构建结果链表。这一过程的时间复杂度和数组相同，均为 =O(n)= ，即
+Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需要extra
+ memory。
+
+主程序中需要完成的就是链表的平分，数组可以随机访问，因此数组版本的divide
+过程复杂度为 =O(1)= ，而链表需要 =O(n)= 来定位到其中间位置，综上，链表
+的merge sort复杂度也是 =O(nlgn)= 。
 
