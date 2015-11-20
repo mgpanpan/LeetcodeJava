@@ -54,20 +54,13 @@ public class IntersectionLinkedLists
         for (int i = 0; i < Math.abs(lA - lB); i++)
             headA = headA.next;
 
-        boolean flag = false;    // flag to indicate whether find a
-        ListNode intersection = null;
         while (headA != null && headB != null) {
-            if (headA == headB && !flag) {
-                intersection = headA;
-                flag = true;
-            } else if (headA != headB) {
-                intersection = null;
-                flag = false;
-            }
+            if (headA == headB)
+                return headA;
             headA = headA.next;
             headB = headB.next;
         }
-        return intersection;
+        return null;
     }
 
     private static int lengthOfList(ListNode head) {
@@ -101,6 +94,7 @@ public class IntersectionLinkedLists
         show(lst);
         ListNode lst2 = new ListNode(10);
         lst2.next = lst;
+        show(lst2);
         show((getIntersectionNode(lst, lst2)));
     }
 }
