@@ -67,6 +67,6 @@ public class RotateList
             elems[i] = new ListNode(r.nextInt(10));
         ListNode lst1 = composeList(elems);
         show(lst1);
-        show(rotateRight(lst1, 9));
+        show(rotateRight(lst1, 10));
     }
 }

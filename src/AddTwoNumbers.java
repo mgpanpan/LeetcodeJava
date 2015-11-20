@@ -7,7 +7,6 @@ import java.util.Random;
  * digit is at the head of the list. Write a function that adds the two numbers
  * and returns the sum as a linked list.
  *
- * Have you met this question in a real interview? Yes
  * Example
  * Given 7->1->6 + 5->9->2. That is, 617 + 295.
  *
