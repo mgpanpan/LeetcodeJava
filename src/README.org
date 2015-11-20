@@ -39,9 +39,10 @@ findMiddle这个函数的实现一般是通过fast和slow指针完成的，但�
 链表的长度，再定位到长度的一半，两者的时间复杂度是相同的。
 
 *参考解法*
+
 上面的解法时间复杂度为 =O(nlgn)= ，参考答案给出了一种复杂度为 =O(n)= 的解法：
 #+BEGIN_SRC Java
-// method 2 O(n)
+// method 2, O(n)
 private static ListNode current;
 
 private static int lengthOfList(ListNode head) {
@@ -165,8 +166,7 @@ a = 11, b = 1, Return 100
 : sum = a ^ b ^ cin
 : cout = a & b | b & cin | a & cin
 
-- 用 =String= 的 =charAt= method取出每一字符，字符为其ASCII码，需减去
-=~'0'~= 转化为数字进行运算
+- 用 =String= 的 =charAt= method取出每一字符，字符为其ASCII码，需减去 '0' 转化为数字进行运算
 - 将不同位的运算结果拼接起来时，用 =String= 的 =+= 运算符实现较简便。
 
 ** Add Two Numbers
@@ -264,7 +264,6 @@ After removing the second node from the end, the linked list becomes
 节点。
 
 
-
 ** Intersection Linked Lists
 
 Write a program to find the node at which the intersection of two singly 
@@ -274,27 +273,25 @@ linked lists begins.
 
 The following two linked lists:
 
- A:          a1 → a2
-                     ↘
-                       c1 → c2 → c3
-                     ↗
- B:     b1 → b2 → b3
+ A:          a1 -> a2 -> c1 -> c2 -> c3
+
+ B:          b1 → b2 → b3 -> c1 -> c2 -> c3
  
  begin to intersect at node c1.
 
  *Note*
  
- If the two linked lists have no intersection at all, return null.
+ - If the two linked lists have no intersection at all, return null.
 
- The linked lists must retain their original structure after the function 
+ - The linked lists must retain their original structure after the function 
  returns.
 
- You may assume there are no cycles anywhere in the entire linked 
+ - You may assume there are no cycles anywhere in the entire linked 
  structure.
 
  *Challenge*
  
- Your code should preferably run in O(n) time and use only O(1) memory.
+ Your code should preferably run in =O(n)= time and use only =O(1)= memory.
 
 *思路*
 
