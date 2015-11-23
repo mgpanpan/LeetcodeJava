@@ -333,4 +333,13 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 用Priority Queue，类似于find kth largest element in matrix这个问题，
 先将第一列的所有元素加入pq中，再每次从中deleteMin，并将min对应行的
 下一个元素再次加入pq，若没有下一元素了，就不加，直到pq为空为止
+复杂度同样为O(knlgk)
 
+** Linked List Cycle
+
+Given a linked list, determine if it has a cycle in it.
+
+*思路*
+
+快慢指针法，块指针从head.next开始，慢指针从head开始，快指针每次移动两格，慢指针每次移动一格，
+若两者能够相遇，则有环，否则，若在这个过程中检测到了链表尾，则无环。
