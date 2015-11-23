@@ -312,3 +312,25 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 过程复杂度为 =O(1)= ，而链表需要 =O(n)= 来定位到其中间位置，综上，链表
 的merge sort复杂度也是 =O(nlgn)= 。
 
+** Insertion Sort of Linked List
+** Merge k sorted list
+*思路*
+
+- 方法一
+
+采用Divide-and-Conquer，从顶而下
+
+#+CAPTION: Rotate List
+#+NAME:   fig:RotateList
+[[../image/mergeKSortedList.png]]
+
+- 方法二
+
+同样采用Divide-and-Conquer，只是从下而上
+
+- 方法三
+
+用Priority Queue，类似于find kth largest element in matrix这个问题，
+先将第一列的所有元素加入pq中，再每次从中deleteMin，并将min对应行的
+下一个元素再次加入pq，若没有下一元素了，就不加，直到pq为空为止
+
