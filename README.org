@@ -1,9 +1,24 @@
 * Lintcode 解题思路记录
 #+BEGIN_QUOTE
 *Table of Contents*
-- [[*Convert%20Sorted%20List%20to%20Binary%20Search%20Tree%5BMedium%5D][Convert Sorted List to Binary Search Tree{Medium}]]
+- [[Convert Sorted List to Binary Search Tree][Convert Sorted List to Binary Search Tree]]
+- [[Remove%20Duplicates%20from%20Sorted%20List%20I][Remove Duplicates from Sorted List I]]
+- [[Remove%20Duplicates%20from%20Sorted%20List%20II][Remove Duplicates from Sorted List II]]
+- [[Rotate%20List][Rotate List]]
+- [[Add%20Binary][Add Binary]]
+- [[Add%20Two%20Numbers][Add Two Numbers]]
+- [[Reverse%20Linked%20List][Reverse Linked List]]
+- [[Nth%20to%20Last%20Node%20in%20List][Nth to Last Node in List]]
+- [[Remove%20Linked%20List%20Elements][Remove Linked List Elements]]
+- [[Remove%20Nth%20From%20End%20of%20List][Remove Nth From End of List]]
+- [[Intersection%20Linked%20Lists][Intersection Linked List]]
+- [[Merge%20Sort%20of%20Linked%20List][Merge Sort of Linked List]]
+- [[Insertion%20Sort%20of%20Linked%20List][Insertion Sort of Linked List]]
+- [[Merge%20k%20Sorted%20List][Merge k Sorted List]]
+- [[Linked%20List%20Cycle][Linked List Cycle]]
+- [[Reverse%20Linked%20List%20II][Reverse Linked List II]]
 #+END_QUOTE
-** Convert Sorted List to Binary Search Tree[Medium]
+** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
 convert it to a height balanced BST.
 
@@ -75,8 +90,7 @@ private static TreeNode sortedListToBSTHelper(int length) {
 
 自己的解法是从根到叶的一种从上而下的解法，而这种解法是从下往上的解法，扫描
 一遍原链表即可，要优于自己的解法。
-
-** Romve Duplicates from Sorted List I [Easy]
+** Remove Duplicates from Sorted List I
 Given a sorted linked list, delete all duplicates such that each element 
 appear only once.
 
@@ -99,7 +113,7 @@ Given 1->1->2->3->3, return 1->2->3.
 p从左往右扫描链表，每次x从p的下一个Node开始扫描，碰到与p的val不同的Node就
 停下来，此时再修改p的next，使得连续相同的元素仅保留一个。
 
-** Romve Duplicates from Sorted List II [Medium]
+** Remove Duplicates from Sorted List II
 Given a sorted linked list, delete all nodes that have duplicate numbers, 
 leaving only distinct numbers from the original list.
 
@@ -126,7 +140,6 @@ Given 1->1->1->2->3, return 2->3.
 =p= 指针在外循环扫描一遍链表， =x= 指针在内循环扫描 =p.next= 之后的节点，
 直到找到和 =p.next= 的 =val= 不同的节点为止，并在此过程中标志 =p.next= 
 是否为重复的 =Node= 。
-
 ** Rotate List
 
 Given a list, rotate the list to the right by k places, where k is non-negative.
@@ -320,7 +333,7 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 遍历一遍原链表，每次将当前元素插入结果链表中，结果链表一开始为空，每次插入
 都保持其为有序的。
 
-** Merge k sorted list
+** Merge k Sorted List
 *思路*
 
 - 方法一
@@ -351,7 +364,7 @@ Given a linked list, determine if it has a cycle in it.
 快慢指针法，块指针从head.next开始，慢指针从head开始，快指针每次移动两格，慢指针每次移动一格，
 若两者能够相遇，则有环，否则，若在这个过程中检测到了链表尾，则无环。
 
-** Reverse Linked List
+** Reverse Linked List II
 Reverse a linked list from position m to n.
 
 - Example
@@ -381,4 +394,6 @@ Reverse it in-place and in one-pass
 #+CAPTION: Reverse Linked List II
 #+NAME:   fig:ReverseLinkedListII
 [[./image/reverseLinkedListII.png]]
+
+
 
