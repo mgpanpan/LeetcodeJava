@@ -313,6 +313,9 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 的merge sort复杂度也是 =O(nlgn)= 。
 
 ** Insertion Sort of Linked List
+遍历一遍原链表，每次将当前元素插入结果链表中，结果链表一开始为空，每次插入
+都保持其为有序的。
+
 ** Merge k sorted list
 *思路*
 
@@ -320,8 +323,8 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 
 采用Divide-and-Conquer，从顶而下
 
-#+CAPTION: Rotate List
-#+NAME:   fig:RotateList
+#+CAPTION: Merge K Sorted List
+#+NAME:   fig:MergeKSortedList
 [[../image/mergeKSortedList.png]]
 
 - 方法二
@@ -343,3 +346,35 @@ Given a linked list, determine if it has a cycle in it.
 
 快慢指针法，块指针从head.next开始，慢指针从head开始，快指针每次移动两格，慢指针每次移动一格，
 若两者能够相遇，则有环，否则，若在这个过程中检测到了链表尾，则无环。
+
+** Reverse Linked List
+Reverse a linked list from position m to n.
+
+- Example
+
+Given 1->2->3->4->5->NULL, m = 2 and n = 4, return 1->4->3->2->5->NULL.
+
+- Note
+
+Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.
+
+- Challenge
+
+Reverse it in-place and in one-pass
+
+- 思路
+
+此题要求将指定范围内的节点逆置，将整个链表逆置的问题已解决，在这个基础上，
+只需用原逆置的方法，将指定范围内的节点逆置，然后将结果和原链表的首尾分别
+相连即可，因此，需要记录下3个量：
+
+1) 指定范围的前驱
+2) 逆置部分的链表尾，即为原指定范围内的首
+3) 指定范围的后继
+
+这三个量都可以在遍历链表的过程中记录下来。
+
+#+CAPTION: Reverse Linked List II
+#+NAME:   fig:ReverseLinkedListII
+[[../image/ReverseLinkedListII.png]]
+
