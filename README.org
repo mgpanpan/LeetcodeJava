@@ -1,6 +1,8 @@
-#+OPTIONS: toc:2          only inlcude two levels in TOC
-
 * Lintcode 解题思路记录
+#+BEGIN_QUOTE
+*Table of Contents*
+[[Convert Sorted List to Binary Search Tree]]
+#+END_QUOTE
 ** Convert Sorted List to Binary Search Tree[Medium]
 Given a singly linked list where elements are sorted in ascending order, 
 convert it to a height balanced BST.
@@ -380,3 +382,4 @@ Reverse it in-place and in one-pass
 #+NAME:   fig:ReverseLinkedListII
 [[./image/reverseLinkedListII.png]]
 
+** Convert Sorted List to Binary Search Tree
