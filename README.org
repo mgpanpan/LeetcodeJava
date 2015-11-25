@@ -1,3 +1,5 @@
+#+OPTIONS: toc:2          only inlcude two levels in TOC
+
 * Lintcode 解题思路记录
 ** Convert Sorted List to Binary Search Tree[Medium]
 Given a singly linked list where elements are sorted in ascending order, 
