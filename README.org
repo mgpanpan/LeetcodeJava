@@ -28,7 +28,7 @@ recursion: 找到中间的Node，将其val作为BST根节点的val，将其左�
 
 #+CAPTION: middle的指向
 #+NAME:   fig:FindMiddle
-[[../image/SortedListToBST.png]]
+[[./image/SortedListToBST.png]]
 
 很多链表题目的中间过程需要定位到链表的中间节点，注意不同题目具体的需求不同，
 可能需要定位到中间的元素，也可能需要定位到中间元素的前一元素，而且对于中间
@@ -90,7 +90,7 @@ Given 1->1->2->3->3, return 1->2->3.
 
 #+CAPTION: Remove Duplicates Sorted List I
 #+NAME:   fig:RemoveDuplicatesI
-[[../image/DeleteDuplicatesI.png]]
+[[./image/DeleteDuplicatesI.png]]
 
 p从左往右扫描链表，每次x从p的下一个Node开始扫描，碰到与p的val不同的Node就
 停下来，此时再修改p的next，使得连续相同的元素仅保留一个。
@@ -117,7 +117,7 @@ Given 1->1->1->2->3, return 2->3.
 
 #+CAPTION: Remove Duplicates Sorted List II
 #+NAME:   fig:RemoveDuplicatesII
-[[../image/DeleteDuplicatesII.png]]
+[[./image/DeleteDuplicatesII.png]]
 
 =p= 指针在外循环扫描一遍链表， =x= 指针在内循环扫描 =p.next= 之后的节点，
 直到找到和 =p.next= 的 =val= 不同的节点为止，并在此过程中标志 =p.next= 
@@ -142,7 +142,7 @@ Given 1->2->3->4->5 and k = 2, return 4->5->1->2->3.
 
 #+CAPTION: Rotate List
 #+NAME:   fig:RotateList
-[[../image/rotateList.png]]
+[[./image/rotateList.png]]
 
 在统计链表长度的同时，将链表首尾相连，再定位到第 =length - k % length= 的
 节点，其为rotate后链表的 =head= ，且需将链表从此处断开。
@@ -200,7 +200,7 @@ Reverse it in-place and in one-pass
 
 #+CAPTION: Rotate List
 #+NAME:   fig:RotateList
-[[../image/ReverseLinkedList.png]]
+[[./image/ReverseLinkedList.png]]
 
 ** Nth to Last Node in List
 
@@ -325,7 +325,7 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 
 #+CAPTION: Merge K Sorted List
 #+NAME:   fig:MergeKSortedList
-[[../image/mergeKSortedList.png]]
+[[./image/mergeKSortedList.png]]
 
 - 方法二
 
@@ -376,5 +376,5 @@ Reverse it in-place and in one-pass
 
 #+CAPTION: Reverse Linked List II
 #+NAME:   fig:ReverseLinkedListII
-[[../image/ReverseLinkedListII.png]]
+[[./image/reverseLinkedListII.png]]
 
