@@ -1,7 +1,7 @@
 * Lintcode 解题思路记录
 #+BEGIN_QUOTE
 *Table of Contents*
-[[Convert Sorted List to Binary Search Tree]]
+- [[*Convert%20Sorted%20List%20to%20Binary%20Search%20Tree%5BMedium%5D][Convert Sorted List to Binary Search Tree{Medium}]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree[Medium]
 Given a singly linked list where elements are sorted in ascending order, 
@@ -382,4 +382,3 @@ Reverse it in-place and in one-pass
 #+NAME:   fig:ReverseLinkedListII
 [[./image/reverseLinkedListII.png]]
 
-** Convert Sorted List to Binary Search Tree
