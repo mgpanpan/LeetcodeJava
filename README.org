@@ -2,21 +2,22 @@
 #+BEGIN_QUOTE
 *Table of Contents*
 - [[#convert-sorted-list-to-binary-search-tree][Convert Sorted List to Binary Search Tree]]
-- [[Remove%20Duplicates%20from%20Sorted%20List%20I][Remove Duplicates from Sorted List I]]
-- [[Remove%20Duplicates%20from%20Sorted%20List%20II][Remove Duplicates from Sorted List II]]
+- [[#remove-duplicates-from-sorted-list-I][Remove Duplicates from Sorted List I]]
+- [[#remove-duplicates-from-sorted-list-II][Remove Duplicates from Sorted List II]]
 - [[#rotate-list][Rotate List]]
-- [[Add%20Binary][Add Binary]]
-- [[Add%20Two%20Numbers][Add Two Numbers]]
-- [[Reverse%20Linked%20List][Reverse Linked List]]
-- [[Nth%20to%20Last%20Node%20in%20List][Nth to Last Node in List]]
-- [[Remove%20Linked%20List%20Elements][Remove Linked List Elements]]
-- [[Remove%20Nth%20From%20End%20of%20List][Remove Nth From End of List]]
-- [[Intersection%20Linked%20Lists][Intersection Linked List]]
-- [[Merge%20Sort%20of%20Linked%20List][Merge Sort of Linked List]]
-- [[Insertion%20Sort%20of%20Linked%20List][Insertion Sort of Linked List]]
-- [[Merge%20k%20Sorted%20List][Merge k Sorted List]]
-- [[Linked%20List%20Cycle][Linked List Cycle]]
-- [[Reverse%20Linked%20List%20II][Reverse Linked List II]]
+- [[#add-binary][Add Binary]]
+- [[#add-two-numbers][Add Two Numbers]]
+- [[#reverse-linked-list][Reverse Linked List]]
+- [[nth-to-last-node-in-list][Nth to Last Node in List]]
+- [[remove-linked-list-elements][Remove Linked List Elements]]
+- [[remove-nth-from-end-of-list][Remove Nth From End of List]]
+- [[intersection-linked-list][Intersection Linked List]]
+- [[merge-sort-of-linked-list][Merge Sort of Linked List]]
+- [[insertion-sort-of-linked-list][Insertion Sort of Linked List]]
+- [[merge-k-sorted-list][Merge k Sorted List]]
+- [[linked-list-cycle][Linked List Cycle]]
+- [[reverse-linked-list-II][Reverse Linked List II]]
+- [[#reorder-list][Reorder List]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -396,7 +397,6 @@ Reverse it in-place and in one-pass
 [[./image/reverseLinkedListII.png]]
 
 ** Reorder List
-
 Given a singly linked list L: L0→L1→…→Ln-1→Ln,
 reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
 
@@ -406,6 +406,5 @@ You must do this in-place without altering the nodes' values.
 Given 1->2->3->4->null, reorder it to 1->4->2->3->null.
 
 - 思路
-
 和PalindromeLinkedList很类似，找到中间的点，将后半段List倒序，再将前半段和倒序后的后半段交叉拼接。
 
