@@ -4,7 +4,7 @@
 - [[#convert-sorted-list-to-binary-search-tree][Convert Sorted List to Binary Search Tree]]
 - [[Remove%20Duplicates%20from%20Sorted%20List%20I][Remove Duplicates from Sorted List I]]
 - [[Remove%20Duplicates%20from%20Sorted%20List%20II][Remove Duplicates from Sorted List II]]
-- [[Rotate%20List][Rotate List]]
+- [[rotate-list][Rotate List]]
 - [[Add%20Binary][Add Binary]]
 - [[Add%20Two%20Numbers][Add Two Numbers]]
 - [[Reverse%20Linked%20List][Reverse Linked List]]
