@@ -2,8 +2,8 @@
 #+BEGIN_QUOTE
 *Table of Contents*
 - [[#convert-sorted-list-to-binary-search-tree][Convert Sorted List to Binary Search Tree]]
-- [[#remove-duplicates-from-sorted-list-I][Remove Duplicates from Sorted List I]]
-- [[#remove-duplicates-from-sorted-list-II][Remove Duplicates from Sorted List II]]
+- [[#remove-duplicates-from-sorted-list-i][Remove Duplicates from Sorted List I]]
+- [[#remove-duplicates-from-sorted-list-ii][Remove Duplicates from Sorted List II]]
 - [[#rotate-list][Rotate List]]
 - [[#add-binary][Add Binary]]
 - [[#add-two-numbers][Add Two Numbers]]
@@ -11,12 +11,12 @@
 - [[#nth-to-last-node-in-list][Nth to Last Node in List]]
 - [[#remove-linked-list-elements][Remove Linked List Elements]]
 - [[#remove-nth-from-end-of-list][Remove Nth From End of List]]
-- [[#intersection-linked-list][Intersection Linked List]]
+- [[#intersection-linked-lists][Intersection Linked Lists]]
 - [[#merge-sort-of-linked-list][Merge Sort of Linked List]]
 - [[#insertion-sort-of-linked-list][Insertion Sort of Linked List]]
 - [[#merge-k-sorted-list][Merge k Sorted List]]
 - [[#linked-list-cycle][Linked List Cycle]]
-- [[#reverse-linked-list-II][Reverse Linked List II]]
+- [[#reverse-linked-list-ii][Reverse Linked List II]]
 - [[#reorder-list][Reorder List]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
