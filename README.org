@@ -395,5 +395,17 @@ Reverse it in-place and in one-pass
 #+NAME:   fig:ReverseLinkedListII
 [[./image/reverseLinkedListII.png]]
 
+** Reorder List
 
+Given a singly linked list L: L0→L1→…→Ln-1→Ln,
+reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
+
+You must do this in-place without altering the nodes' values.
+
+- Example
+Given 1->2->3->4->null, reorder it to 1->4->2->3->null.
+
+- 思路
+
+和PalindromeLinkedList很类似，找到中间的点，将后半段List倒序，再将前半段和倒序后的后半段交叉拼接。
 
