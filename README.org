@@ -18,6 +18,9 @@
 - [[#linked-list-cycle][Linked List Cycle]]
 - [[#reverse-linked-list-ii][Reverse Linked List II]]
 - [[#reorder-list][Reorder List]]
+- [[majority-number-i][Majority Number I]]
+- [[majority-number-ii][Majority Number II]]
+- [[majority-number-iii][Majority Number III]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -408,3 +411,47 @@ Given 1->2->3->4->null, reorder it to 1->4->2->3->null.
 - 思路
 和PalindromeLinkedList很类似，找到中间的点，将后半段List倒序，再将前半段和倒序后的后半段交叉拼接。
 
+** Majority Number I
+Given an array of integers, the majority number is the number that occurs more
+than half of the size of the array. Find it.
+
+- Example
+Given [1, 1, 1, 1, 2, 2, 2], return 1
+
+- Challenge
+O(n) time and O(1) extra space
+
+- 思路
+要找出长度为 =n= 的数组中，出现次数大于 =n/2= 的元素，因此最多只能有一个，也可能
+没有。
+
+采用一种称为 *Moore's Voting Algorithm* 的算法，复杂度为 =O(n)= 。
+
+*参考：* http://stackoverflow.com/questions/4325200/find-majority-element-in-array，
+其中提到了这种方法实际上属于一种 =stream counting algorithm= 。
+
+** Majority Number II
+和 [[Majority%20Number%20I][Majority Number I ]]类似只是此时 Majority Number 定义为出现次数大于 =n/3= 
+的元素，且题目说明可假设输入数组中必定存在唯一的 Majority Number。
+
+要求 =O(n)= time， =O(1)= space。
+
+- 思路
+实际上和 [[Majority%20Number%20I][I]] 思路相同， [[Majority%20Number%20I][I]] 的思路可理解为“一个消一个”，消到最后，重复次数大于
+ =1/2= 的元素的计数值必定会大于0，这里要找出重复次数大于 =1/3= 的元素，就
+可采用“一个消两个”的策略。
+
+** Majority Number III
+此题为[[Majority%20Number%20I][I]]和[[Majority%20Number%20II][II]]的Generalize，定义 Majority Number 为出现次数大于 =n/k= 的元素，
+且假设输入数组中必定存在唯一的 Majority Number。
+
+- 思路
+“一个消k-1个”，用一个Hash Table存储 =<candidate, count>= 对，一边scan一边
+统计出现的不同candidate的次数，建立起此Hash Table，当其长度超过 =k-1= 时，
+即新来的元素和当前的 =k-1= 个都不相同，此时进行一次相消操作，即当前纪录的
+数目均减一，减到0的将其整个 =entry= 移去，扫描完成后，还需重新scan一遍，计算出
+Hash Table中元素的真实次数，最后将Hash Table中 =value= 最大的 =key= 找出即可。
+
+*复杂度* ： =O(nlgk)= time, =O(k)= space
+
+*参考* ： http://algorithm.yuanbin.me/zh-cn/math_and_bit_manipulation/majority_number_iii.html
