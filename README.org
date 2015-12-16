@@ -21,6 +21,9 @@
 - [[#majority-number-i][Majority Number I]]
 - [[#majority-number-ii][Majority Number II]]
 - [[#majority-number-iii][Majority Number III]]
+- [[#binary-tree][Binary Tree]]
+  + [[insert-node-in-binary-search-tree][Insert Node in Binary Search Tree]]
+  + [[#remove-node-in-binary-search-tree][Remove Node in Binary Search Tree]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -455,3 +458,16 @@ Hash Table中元素的真实次数，最后将Hash Table中 =value= 最大的 =k
 *复杂度* ： =O(nlgk)= time, =O(k)= space
 
 *参考* ： http://algorithm.yuanbin.me/zh-cn/math_and_bit_manipulation/majority_number_iii.html
+** Insert Node in Binary Search Tree
+- 思路
+recursive 解法
+** Remove Node in Binary Search Tree
+- 思路
+当定位到待删除节点时：
+  + 若要删除的节点的左子树为空，返回其右子树
+  + 若要删除的节点的右子树为空，返回其左子树
+  + 若均不为空：
+    1. 找出其右子树的最小值，即待删除节点的直接后继
+    2. 以该最小值建立一个节点，该节点为新root
+    3. 其左子树为待删除节点的左子树，右子树为待删除节点的右子树删去最小值节点的结果
+    4. 返回这个新root
