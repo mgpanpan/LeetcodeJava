@@ -18,9 +18,9 @@
 - [[#linked-list-cycle][Linked List Cycle]]
 - [[#reverse-linked-list-ii][Reverse Linked List II]]
 - [[#reorder-list][Reorder List]]
-- [[majority-number-i][Majority Number I]]
-- [[majority-number-ii][Majority Number II]]
-- [[majority-number-iii][Majority Number III]]
+- [[#majority-number-i][Majority Number I]]
+- [[#majority-number-ii][Majority Number II]]
+- [[#majority-number-iii][Majority Number III]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -448,7 +448,7 @@ O(n) time and O(1) extra space
 - 思路
 “一个消k-1个”，用一个Hash Table存储 =<candidate, count>= 对，一边scan一边
 统计出现的不同candidate的次数，建立起此Hash Table，当其长度超过 =k-1= 时，
-即新来的元素和当前的 =k-1= 个都不相同，此时进行一次相消操作，即当前纪录的
+即新来的元素和当前的 =k-1= 个都不相同，此时进行一次相消操作，即当前记录的
 数目均减一，减到0的将其整个 =entry= 移去，扫描完成后，还需重新scan一遍，计算出
 Hash Table中元素的真实次数，最后将Hash Table中 =value= 最大的 =key= 找出即可。
 
