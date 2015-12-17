@@ -24,6 +24,8 @@
 - [[#binary-tree][Binary Tree]]
   + [[#insert-node-in-binary-search-tree][Insert Node in Binary Search Tree]]
   + [[#remove-node-in-binary-search-tree][Remove Node in Binary Search Tree]]
+  + [[#validate-binary-search-tree][Validate Binary Search Tree]]
+  + [[#search-range-in-binary-search-tree][Search Range in Binary Search Tree]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -458,10 +460,11 @@ Hash Table中元素的真实次数，最后将Hash Table中 =value= 最大的 =k
 *复杂度* ： =O(nlgk)= time, =O(k)= space
 
 *参考* ： http://algorithm.yuanbin.me/zh-cn/math_and_bit_manipulation/majority_number_iii.html
-** Insert Node in Binary Search Tree
+** Binary Tree
+*** Insert Node in Binary Search Tree
 - 思路
 recursive 解法
-** Remove Node in Binary Search Tree
+*** Remove Node in Binary Search Tree
 - 思路
 当定位到待删除节点时：
   + 若要删除的节点的左子树为空，返回其右子树
@@ -471,3 +474,32 @@ recursive 解法
     2. 以该最小值建立一个节点，该节点为新root
     3. 其左子树为待删除节点的左子树，右子树为待删除节点的右子树删去最小值节点的结果
     4. 返回这个新root
+*** Validate Binary Search Tree
+Given a binary tree, determine if it is a valid binary search tree (BST).
+
+BST definition: =left subtree < root < right subtree=, and both the left
+and right subtrees must also be binary search tree
+
+- 思路
+首先实现一个helper function:
+
+: private static boolean isValidBST(TreeNode root, int thresholdLow, int thresholdHigh)
+
+两个 =threshold= 表示当前子树需要满足的范围，完整的BST没有这两个 =threshold= 
+的限制（或者说 =threshold= 设置为无限宽），随着往下层的递归，
+由于BST的左子树必须都小于 =root= 的值，右子树必须大于 =root= 的值，据此
+逐渐更新 =threshold= ，并对当前节点进行判断。
+
+*** Search Range in Binary Search Tree
+Given two values k1 and k2 (where k1 < k2) and a root pointer to a 
+Binary Search Tree. Find all the keys of tree in range k1 to k2. i.e. 
+print all x such that k1<=x<=k2 and x is a key of given BST. Return 
+all the keys in ascending order.
+
+- 思路
+: 1. root.val >= k1   ===> 左递归
+: 2. root.val >= k1 && root.val <= k2 ===> 存入结果链表
+: 3. root.val <= k2   ===> 右递归
+
+
+
