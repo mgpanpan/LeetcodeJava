@@ -26,6 +26,7 @@
   + [[#remove-node-in-binary-search-tree][Remove Node in Binary Search Tree]]
   + [[#validate-binary-search-tree][Validate Binary Search Tree]]
   + [[#search-range-in-binary-search-tree][Search Range in Binary Search Tree]]
+  + [[#binary-search-tree-iterator][Binary Search Tree Iterator]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -503,3 +504,37 @@ all the keys in ascending order.
 
 
 
+*** Binary Search Tree Iterator
+Design an iterator over a binary search tree with the following rules:
+1) Elements are visited in ascending order (i.e. an in-order traversal)
+2)  next() and hasNext() queries run in O(1) time in average.
+
+即要求实现一个 inorder 的binary tree iterator.
+
+- Challenge
+Extra memory usage O(h), h is the height of the tree.
+- Super Star: Extra memory usage O(1)
+
+- 思路
+  + 方法1 
+    最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal
+    即先访问左子树再访问根节点，最后访问右子树，需要用到空间为 =n= 的Queue。
+
+  + 方法2
+    实现一个helper function
+    : void pushLeftTrace(TreeNode root)
+其从当前根节点不断往左 traversal，并将访问的节点push到栈中。
+
+初始状态：待处理BST的所有左Trace节点都push入栈（constructor中完成）；
+
+中间过程：每次从这个栈中pop，得到的元素就是当前需要的元素，再返回其之前将
+其右子树的左Trace入栈（调用pushLeftTrace(next.right)）
+
+需要用到空间为 =h= 的Stack。
+
+*** Binary Tree Inorder Traversal
+Given a binary tree, return the inorder traversal of its nodes' values.
+
+- 思路
+和上题完全相同，也有两种方法，recursion对应上题方法1，non-recursion
+对应上题方法2。
