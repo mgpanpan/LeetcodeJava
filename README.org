@@ -27,6 +27,9 @@
   + [[#validate-binary-search-tree][Validate Binary Search Tree]]
   + [[#search-range-in-binary-search-tree][Search Range in Binary Search Tree]]
   + [[#binary-search-tree-iterator][Binary Search Tree Iterator]]
+  + [[#binary-tree-inorder-traversal][Binary Tree Inorder Traversal]]
+  + [[#binary-tree-preorder-traversal][Binary Tree Preorder Traversal]]
+  + [[#binary-tree-postorder-traversal][Binary Tree Postorder Traversal]]
 #+END_QUOTE
 ** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
@@ -502,8 +505,6 @@ all the keys in ascending order.
 : 2. root.val >= k1 && root.val <= k2 ===> 存入结果链表
 : 3. root.val <= k2   ===> 右递归
 
-
-
 *** Binary Search Tree Iterator
 Design an iterator over a binary search tree with the following rules:
 1) Elements are visited in ascending order (i.e. an in-order traversal)
@@ -513,15 +514,18 @@ Design an iterator over a binary search tree with the following rules:
 
 - Challenge
 Extra memory usage O(h), h is the height of the tree.
-- Super Star: Extra memory usage O(1)
+- Super Star
+Extra memory usage O(1)
 
 - 思路
   + 方法1 
-    最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal
-    即先访问左子树再访问根节点，最后访问右子树，需要用到空间为 =n= 的Queue。
+    
+最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal
+即先访问左子树再访问根节点，最后访问右子树，需要用到空间为 =n= 的Queue。
 
   + 方法2
-    实现一个helper function
+    
+实现一个helper function
     : void pushLeftTrace(TreeNode root)
 其从当前根节点不断往左 traversal，并将访问的节点push到栈中。
 
@@ -538,3 +542,42 @@ Given a binary tree, return the inorder traversal of its nodes' values.
 - 思路
 和上题完全相同，也有两种方法，recursion对应上题方法1，non-recursion
 对应上题方法2。
+*** Binary Tree Preorder Traversal
+方法一，recursion
+
+方法二和三给出了两种non-recursion实现，详见代码，方法二是在按照上面inorder
+的实现思路修改得到，方法三更简洁。
+
+*** Binary Tree Postorder Traversal
+- 参考
+  + [[http://stackoverflow.com/questions/1294701/post-order-traversal-of-binary-tree-without-recursion%20][stackoverflow回答]]
+  + [[http://articles.leetcode.com/2010/10/binary-tree-post-order-traversal.html][leetcode article]]
+
+- 思路
+主要是按照上面的 [[http://articles.leetcode.com/2010/10/binary-tree-post-order-traversal.html][leetcode article]] 中的内容实现。
+
+方法一，递归法。
+
+方法二，需要用一个stack来记录parent node，还需要一个指针prev记录上一个访问
+的节点，从而能够知道我们是在traverse up 还是 down。
+
+每次以栈顶元素作为当前处理的node (curr)：
+
++ 若prev是curr的parent，则说明当前在traversing down
+  - 若curr.left存在，则push curr.left（作为下次处理node）
+  - 若curr.left不存在，curr.right存在，push curr.right
+  - 若curr.left和curr.right均不存在，则将curr从栈中pop出，放入结果数组中
++ 若prev是curr的左child，则说明当前在从左侧traversing up
+  - 若此时curr.right存在，则转向处理curr.right (push curr.right)
+  - 若此时curr.right不存在，将curr从栈中pop出，放入结果数组
++ 若prev是curr的右child，则说明当前在从右侧traversing up
+  将curr从栈中pop出，放入结果数组
+
+方法三，在已经实现了preorder的iterative版本的情况下，可思考preorder 和postorder
+的区别和联系，postorder是“左右中”，preorder是“中左右”，将preorder的实现
+中，将左右处理的部分倒过来，很容易得到“中右左”的遍历，这个顺序和postorder
+是reverse的，所以用一个stack代替原来的queue即可。
+
+
+
+

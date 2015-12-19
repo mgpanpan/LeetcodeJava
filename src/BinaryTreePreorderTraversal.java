@@ -37,6 +37,7 @@ public class BinaryTreePreorderTraversal
     */
 
     // method 2, non-recursive
+    /*
     public static ArrayList<Integer> preorderTraversal(TreeNode root) {
         ArrayList<Integer> q = new ArrayList<Integer>();
         Stack<TreeNode> rightPart = new Stack<TreeNode>();
@@ -56,6 +57,23 @@ public class BinaryTreePreorderTraversal
             rightPart.push(root.right);
             root = root.left;
         }
+    }
+*/
+    // method3 non-recursive 比method 2 更直观
+    public static ArrayList<Integer> preorderTraversal(TreeNode root) {
+        ArrayList<Integer> q = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+
+        if (root == null) return q;
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            q.add(curr.val);
+            if (curr.right != null) stack.push(curr.right);
+            if (curr.left != null) stack.push(curr.left);
+        }
+
+        return q;
     }
 
 }

@@ -34,24 +34,59 @@ public class BinaryTreePostorderTraversal
     }
 */
 
-    // method 2, non-recursion not pass!!
-
+    // method 2
     /*
     public static ArrayList<Integer> postorderTraversal(TreeNode root) {
-
         ArrayList<Integer> q = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
 
         if (root == null) return q;
         stack.push(root);
-        if (root.right != null) stack.push(root.right);
-        if (root.left != null) stack.push(root.left);
+        TreeNode prev = null;
+
         while (!stack.isEmpty()) {
-            TreeNode tn
+            TreeNode curr = stack.peek();
+            if (prev == null || prev.left == curr || prev.right == curr) {  // traversal down
+                if (curr.left != null)
+                    stack.push(curr.left);
+                else if (curr.right != null)
+                    stack.push(curr.right);
+                else {  // a leaf node
+                    q.add(stack.pop().val);
+                }
+            } else if (prev == curr.left) {  // traversal up from left
+                if (curr.right != null) stack.push(curr.right);
+                else q.add(stack.pop().val);
+            } else if (prev == curr.right) {  // traversal up from right
+                q.add(stack.pop().val);
+            }
+            prev = curr;
         }
 
         return q;
     }
-     */
+*/
+
+    // method 3, using two stacks
+    public static ArrayList<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> q = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<Integer> reversed = new Stack<Integer>();
+
+        if (root == null) return q;
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            reversed.push(curr.val);
+            if (curr.left != null) stack.push(curr.left);
+            if (curr.right != null) stack.push(curr.right);
+        }
+
+        while (!reversed.isEmpty())
+            q.add(reversed.pop());
+
+        return q;
+    }
+
 
 }
