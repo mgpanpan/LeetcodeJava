@@ -518,13 +518,11 @@ Extra memory usage O(h), h is the height of the tree.
 Extra memory usage O(1)
 
 - 思路
-  + 方法1 
-    
-最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal
+方法一，  
+最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal，
 即先访问左子树再访问根节点，最后访问右子树，需要用到空间为 =n= 的Queue。
 
-  + 方法2
-    
+方法2，    
 实现一个helper function
     : void pushLeftTrace(TreeNode root)
 其从当前根节点不断往左 traversal，并将访问的节点push到栈中。
@@ -571,6 +569,7 @@ Given a binary tree, return the inorder traversal of its nodes' values.
   - 若此时curr.right存在，则转向处理curr.right (push curr.right)
   - 若此时curr.right不存在，将curr从栈中pop出，放入结果数组
 + 若prev是curr的右child，则说明当前在从右侧traversing up
+
   将curr从栈中pop出，放入结果数组
 
 方法三，在已经实现了preorder的iterative版本的情况下，可思考preorder 和postorder

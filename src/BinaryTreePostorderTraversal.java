@@ -87,6 +87,4 @@ public class BinaryTreePostorderTraversal
 
         return q;
     }
-
-
 }
