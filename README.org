@@ -1,26 +1,27 @@
 * Lintcode 解题思路记录
 #+BEGIN_QUOTE
 *Table of Contents*
-- [[#convert-sorted-list-to-binary-search-tree][Convert Sorted List to Binary Search Tree]]
-- [[#remove-duplicates-from-sorted-list-i][Remove Duplicates from Sorted List I]]
-- [[#remove-duplicates-from-sorted-list-ii][Remove Duplicates from Sorted List II]]
-- [[#rotate-list][Rotate List]]
-- [[#add-binary][Add Binary]]
-- [[#add-two-numbers][Add Two Numbers]]
-- [[#reverse-linked-list][Reverse Linked List]]
-- [[#nth-to-last-node-in-list][Nth to Last Node in List]]
-- [[#remove-linked-list-elements][Remove Linked List Elements]]
-- [[#remove-nth-from-end-of-list][Remove Nth From End of List]]
-- [[#intersection-linked-lists][Intersection Linked Lists]]
-- [[#merge-sort-of-linked-list][Merge Sort of Linked List]]
-- [[#insertion-sort-of-linked-list][Insertion Sort of Linked List]]
-- [[#merge-k-sorted-list][Merge k Sorted List]]
-- [[#linked-list-cycle][Linked List Cycle]]
-- [[#reverse-linked-list-ii][Reverse Linked List II]]
-- [[#reorder-list][Reorder List]]
-- [[#majority-number-i][Majority Number I]]
-- [[#majority-number-ii][Majority Number II]]
-- [[#majority-number-iii][Majority Number III]]
+- [[#linked-list][Linked List]]
+  + [[#convert-sorted-list-to-binary-search-tree][Convert Sorted List to Binary Search Tree]]
+  + [[#remove-duplicates-from-sorted-list-i][Remove Duplicates from Sorted List I]]
+  + [[#remove-duplicates-from-sorted-list-ii][Remove Duplicates from Sorted List II]]
+  + [[#rotate-list][Rotate List]]
+  + [[#add-binary][Add Binary]]
+  + [[#add-two-numbers][Add Two Numbers]]
+  + [[#reverse-linked-list][Reverse Linked List]]
+  + [[#nth-to-last-node-in-list][Nth to Last Node in List]]
+  + [[#remove-linked-list-elements][Remove Linked List Elements]]
+  + [[#remove-nth-from-end-of-list][Remove Nth From End of List]]
+  + [[#intersection-linked-lists][Intersection Linked Lists]]
+  + [[#merge-sort-of-linked-list][Merge Sort of Linked List]]
+  + [[#insertion-sort-of-linked-list][Insertion Sort of Linked List]]
+  + [[#merge-k-sorted-list][Merge k Sorted List]]
+  + [[#linked-list-cycle][Linked List Cycle]]
+  + [[#reverse-linked-list-ii][Reverse Linked List II]]
+  + [[#reorder-list][Reorder List]]
+  + [[#majority-number-i][Majority Number I]]
+  + [[#majority-number-ii][Majority Number II]]
+  + [[#majority-number-iii][Majority Number III]]
 - [[#binary-tree][Binary Tree]]
   + [[#insert-node-in-binary-search-tree][Insert Node in Binary Search Tree]]
   + [[#remove-node-in-binary-search-tree][Remove Node in Binary Search Tree]]
@@ -30,8 +31,11 @@
   + [[#binary-tree-inorder-traversal][Binary Tree Inorder Traversal]]
   + [[#binary-tree-preorder-traversal][Binary Tree Preorder Traversal]]
   + [[#binary-tree-postorder-traversal][Binary Tree Postorder Traversal]]
+  + [[#binary-tree-level-order-traversal][Binary Tree Level Order Traversal]]
+  + [[#binary-tree-level-order-traversal-ii][Binary Tree Level Order Traversal II]]
 #+END_QUOTE
-** Convert Sorted List to Binary Search Tree
+** Linked List
+*** Convert Sorted List to Binary Search Tree
 Given a singly linked list where elements are sorted in ascending order, 
 convert it to a height balanced BST.
 
@@ -103,7 +107,7 @@ private static TreeNode sortedListToBSTHelper(int length) {
 
 自己的解法是从根到叶的一种从上而下的解法，而这种解法是从下往上的解法，扫描
 一遍原链表即可，要优于自己的解法。
-** Remove Duplicates from Sorted List I
+*** Remove Duplicates from Sorted List I
 Given a sorted linked list, delete all duplicates such that each element 
 appear only once.
 
@@ -126,7 +130,7 @@ Given 1->1->2->3->3, return 1->2->3.
 p从左往右扫描链表，每次x从p的下一个Node开始扫描，碰到与p的val不同的Node就
 停下来，此时再修改p的next，使得连续相同的元素仅保留一个。
 
-** Remove Duplicates from Sorted List II
+*** Remove Duplicates from Sorted List II
 Given a sorted linked list, delete all nodes that have duplicate numbers, 
 leaving only distinct numbers from the original list.
 
@@ -153,7 +157,7 @@ Given 1->1->1->2->3, return 2->3.
 =p= 指针在外循环扫描一遍链表， =x= 指针在内循环扫描 =p.next= 之后的节点，
 直到找到和 =p.next= 的 =val= 不同的节点为止，并在此过程中标志 =p.next= 
 是否为重复的 =Node= 。
-** Rotate List
+*** Rotate List
 
 Given a list, rotate the list to the right by k places, where k is non-negative.
 
@@ -177,7 +181,7 @@ Given 1->2->3->4->5 and k = 2, return 4->5->1->2->3.
 在统计链表长度的同时，将链表首尾相连，再定位到第 =length - k % length= 的
 节点，其为rotate后链表的 =head= ，且需将链表从此处断开。
 
-** Add Binary
+*** Add Binary
 
 Given two binary strings, return their sum (also a binary string).
 
@@ -199,7 +203,7 @@ a = 11, b = 1, Return 100
 - 用 =String= 的 =charAt= method取出每一字符，字符为其ASCII码，需减去 '0' 转化为数字进行运算
 - 将不同位的运算结果拼接起来时，用 =String= 的 =+= 运算符实现较简便。
 
-** Add Two Numbers
+*** Add Two Numbers
 
 You have two numbers represented by a linked list, where each node contains
 a single digit. The digits are stored in reverse order, such that the 1's
@@ -216,7 +220,7 @@ Given 3->1->5 and 5->9->2, return 8->0->8.
 和上题类似，从低位开始加，将进位依次往高位传递，在每一位加的同时，构建结果
 链表。
 
-** Reverse Linked List
+*** Reverse Linked List
 
 #+BEGIN_SRC Java
 public static ListNode reverse(ListNode head)
@@ -232,7 +236,7 @@ Reverse it in-place and in one-pass
 #+NAME:   fig:RotateList
 [[./image/ReverseLinkedList.png]]
 
-** Nth to Last Node in List
+*** Nth to Last Node in List
 
 Find the nth to last element of a singly linked list.The minimum number
  of nodes in list is n.
@@ -253,7 +257,7 @@ Given a List 3->2->1->5->null and n = 2, return node whose value is 1.
 其实快慢指针法和先统计一遍链表长度，再从头移动 =length - n= 的时间复杂度
 是完全相同的。
 
-** Remove Linked List Elements
+*** Remove Linked List Elements
 
 Remove all elements from a linked list of integers that have value val.
 
@@ -271,7 +275,7 @@ Given 1->2->3->3->4->5->3, val = 3, you should return the list as
 由于删除某个节点需要将其前驱的 =next= 域指向其后继，因此总要获得当前处理
 节点前驱的reference。所以需要在 =head= 之前设置一个 =dummy= 节点。
 
-** Remove Nth From End of List
+*** Remove Nth From End of List
 
 Given a linked list, remove the nth node from the end of list and return 
 its head. The minimum number of nodes in list is n.
@@ -293,7 +297,7 @@ After removing the second node from the end, the linked list becomes
 删除某个节点，总是要获得其前驱的reference，因此这里也需要添加一个 =dummy= 
 节点。
 
-** Intersection Linked Lists
+*** Intersection Linked Lists
 
 Write a program to find the node at which the intersection of two singly 
 linked lists begins.
@@ -328,7 +332,7 @@ The following two linked lists:
 扫描，若发现重合的节点，则返回该节点。否则扫描到链表尾都未找到，则返回
  =null= 。
 
-** Merge Sort of Linked List
+*** Merge Sort of Linked List
 
 *思路*
 
@@ -342,11 +346,11 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 过程复杂度为 =O(1)= ，而链表需要 =O(n)= 来定位到其中间位置，综上，链表
 的merge sort复杂度也是 =O(nlgn)= 。
 
-** Insertion Sort of Linked List
+*** Insertion Sort of Linked List
 遍历一遍原链表，每次将当前元素插入结果链表中，结果链表一开始为空，每次插入
 都保持其为有序的。
 
-** Merge k Sorted List
+*** Merge k Sorted List
 *思路*
 
 - 方法一
@@ -368,7 +372,7 @@ Divide-and-Conquer的Combine过程复杂度为 =O(n)= ，且链表版本不需�
 下一个元素再次加入pq，若没有下一元素了，就不加，直到pq为空为止
 复杂度同样为O(knlgk)
 
-** Linked List Cycle
+*** Linked List Cycle
 
 Given a linked list, determine if it has a cycle in it.
 
@@ -377,7 +381,7 @@ Given a linked list, determine if it has a cycle in it.
 快慢指针法，块指针从head.next开始，慢指针从head开始，快指针每次移动两格，慢指针每次移动一格，
 若两者能够相遇，则有环，否则，若在这个过程中检测到了链表尾，则无环。
 
-** Reverse Linked List II
+*** Reverse Linked List II
 Reverse a linked list from position m to n.
 
 - Example
@@ -408,7 +412,7 @@ Reverse it in-place and in one-pass
 #+NAME:   fig:ReverseLinkedListII
 [[./image/reverseLinkedListII.png]]
 
-** Reorder List
+*** Reorder List
 Given a singly linked list L: L0→L1→…→Ln-1→Ln,
 reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
 
@@ -420,7 +424,7 @@ Given 1->2->3->4->null, reorder it to 1->4->2->3->null.
 - 思路
 和PalindromeLinkedList很类似，找到中间的点，将后半段List倒序，再将前半段和倒序后的后半段交叉拼接。
 
-** Majority Number I
+*** Majority Number I
 Given an array of integers, the majority number is the number that occurs more
 than half of the size of the array. Find it.
 
@@ -439,7 +443,7 @@ O(n) time and O(1) extra space
 *参考：* http://stackoverflow.com/questions/4325200/find-majority-element-in-array，
 其中提到了这种方法实际上属于一种 =stream counting algorithm= 。
 
-** Majority Number II
+*** Majority Number II
 和 [[Majority%20Number%20I][Majority Number I ]]类似只是此时 Majority Number 定义为出现次数大于 =n/3= 
 的元素，且题目说明可假设输入数组中必定存在唯一的 Majority Number。
 
@@ -450,7 +454,7 @@ O(n) time and O(1) extra space
  =1/2= 的元素的计数值必定会大于0，这里要找出重复次数大于 =1/3= 的元素，就
 可采用“一个消两个”的策略。
 
-** Majority Number III
+*** Majority Number III
 此题为[[Majority%20Number%20I][I]]和[[Majority%20Number%20II][II]]的Generalize，定义 Majority Number 为出现次数大于 =n/k= 的元素，
 且假设输入数组中必定存在唯一的 Majority Number。
 
@@ -522,7 +526,7 @@ Extra memory usage O(1)
 最简单的方法就是在其Constructor中完成 binary tree 的 inorder traversal，
 即先访问左子树再访问根节点，最后访问右子树，需要用到空间为 =n= 的Queue。
 
-方法2，    
+方法二，   
 实现一个helper function
     : void pushLeftTrace(TreeNode root)
 其从当前根节点不断往左 traversal，并将访问的节点push到栈中。
@@ -568,9 +572,7 @@ Given a binary tree, return the inorder traversal of its nodes' values.
 + 若prev是curr的左child，则说明当前在从左侧traversing up
   - 若此时curr.right存在，则转向处理curr.right (push curr.right)
   - 若此时curr.right不存在，将curr从栈中pop出，放入结果数组
-+ 若prev是curr的右child，则说明当前在从右侧traversing up
-
-  将curr从栈中pop出，放入结果数组
++ 若prev是curr的右child，则说明当前在从右侧traversing up，此时将curr从栈中pop出，放入结果数组
 
 方法三，在已经实现了preorder的iterative版本的情况下，可思考preorder 和postorder
 的区别和联系，postorder是“左右中”，preorder是“中左右”，将preorder的实现
@@ -580,3 +582,38 @@ Given a binary tree, return the inorder traversal of its nodes' values.
 
 
 
+*** Binary Tree Level Order Traversal
+Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+- Example
+Given binary tree {3,9,20,#,#,15,7},
+:      3
+:     / \
+:    9  20
+:      /  \
+:     15   7
+ 
+return its level order traversal as:
+
+: [
+:   [3],
+:   [9,20],
+:   [15,7]
+: ]
+
+- Challenge
+  + Using only 1 queue to implement it.
+  + Use DFS algorithm to do it.
+
+- 思路
+
+方法一：Bread First Search （Queue）
+
+方法二：Depth First Search 
+
+DFS的每次递归调用时需知道当前所在层数
+
+*** Binary Tree Level Order Traversal II
+要求Bottom Up （相对于上一题的Top Down）
+
+用BFS，中间加上一层stack实现逆序（或直接利用java的ArrayList的add(0,..)）。
